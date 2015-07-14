@@ -1,0 +1,18 @@
+Public Class Form1
+    Private Sub Encrypt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Encrypt.Click
+        Dim xKalimat As String
+        For Each c As Char In Plain.Text
+            c = Chr((Asc(c) + Key.Text) Mod 256)
+            xKalimat &= c
+        Next
+        Cipher.Text = xKalimat
+    End Sub
+    Private Sub Decrypt_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Decrypt.Click
+        Dim xkalimat As String
+        For Each c As Char In Cipher.Text
+            c = Chr((Asc(c) - Key.Text) Mod 256)
+            xkalimat &= c
+        Next
+        Plain.Text = xkalimat
+    End Sub
+End Class
